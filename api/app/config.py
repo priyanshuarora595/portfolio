@@ -9,7 +9,7 @@ ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 API_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = API_DIR / "data"
 CONTENT_DIR = ROOT_DIR / "content" / "projects"
-RESUME_PDF = ROOT_DIR / "PriyanshuAroraAiEngineer.pdf"
+RESUME_PDF = ROOT_DIR / "web" / "public" / "resume.pdf"
 
 EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
 

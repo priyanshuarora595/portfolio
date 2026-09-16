@@ -10,7 +10,7 @@ web/                  Next.js 16 (App Router) + Tailwind CSS — the site itself
 api/                  FastAPI backend — RAG retrieval + Groq-powered chat
 content/projects/     One markdown write-up per project (source of truth for both
                        the project pages on the site and the chatbot's knowledge base)
-PriyanshuAroraAiEngineer.pdf   Resume — also chunked into the chatbot's knowledge base
+web/public/resume.pdf Resume served by the site — also chunked into the chatbot's knowledge base
 ```
 
 ## How the chatbot works
