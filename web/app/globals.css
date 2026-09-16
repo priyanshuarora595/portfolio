@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --ink: #12151a;
+  --panel: #1b1f26;
+  --line: #2a2f37;
+  --paper: #e7e4dc;
+  --paper-dim: #9a978f;
+  --signal: #e8a33d;
+  --signal-ink: #2a1d08;
+  --wire: #5b8c86;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-panel: var(--panel);
+  --color-line: var(--line);
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-signal: var(--signal);
+  --color-signal-ink: var(--signal-ink);
+  --color-wire: var(--wire);
+  --font-display: var(--font-bricolage);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--signal-ink);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+
+.prose-portfolio {
+  --tw-prose-body: var(--paper-dim);
+  --tw-prose-headings: var(--paper);
+  --tw-prose-bold: var(--paper);
+  --tw-prose-links: var(--signal);
+  --tw-prose-code: var(--wire);
+  --tw-prose-bullets: var(--line);
+  --tw-prose-hr: var(--line);
+}
+
+/* Hero pipeline diagram: one orchestrated reveal on load, stage by stage. */
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes grow-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes stage-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pipeline-connector-x {
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: grow-x 0.5s ease-out forwards;
+}
+
+.pipeline-connector-y {
+  transform-origin: top;
+  transform: scaleY(0);
+  animation: grow-y 0.5s ease-out forwards;
+}
+
+.pipeline-stage {
+  opacity: 0;
+  animation: stage-in 0.4s ease-out forwards;
+}
