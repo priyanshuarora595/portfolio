@@ -62,18 +62,18 @@ sections: Problem, My Role, Architecture, Tech Stack, Impact/Results, Links), th
 
 ## Deployment
 
-**Frontend → Vercel**
+Live at:
+- Frontend: https://priyanshu-arora-portfolio.vercel.app (Vercel, project root `web/`)
+- Backend: https://portfolio-api-kg7f.onrender.com (Render, root dir `api/`)
 
-- Import the repo, set the project root to `web/`.
-- Env var: `NEXT_PUBLIC_API_URL` = your deployed backend URL.
+Both are connected to this GitHub repo with auto-deploy on push to `main`.
 
-**Backend → Render**
-
-- `api/render.yaml` is a ready-to-use Blueprint (root dir `api/`, build step installs
-  dependencies and runs `ingest.py` fresh on every deploy, so content edits stay in sync
-  automatically).
-- Env vars to set in the Render dashboard: `GROQ_API_KEY` (secret), and `ALLOWED_ORIGINS`
-  set to your Vercel domain once it exists (comma-separated if you need more than one).
+- Vercel env var: `NEXT_PUBLIC_API_URL` = the Render backend URL.
+- Render env vars: `GROQ_API_KEY` (secret), `GROQ_MODEL`, `ALLOWED_ORIGINS` (the Vercel
+  domain), `RATE_LIMIT_PER_HOUR`.
+- Render's build command installs dependencies and runs `ingest.py` fresh on every
+  deploy, so project doc edits stay in sync automatically. Python is pinned via
+  `api/.python-version`.
 
 ## Notes / known limitations
 
